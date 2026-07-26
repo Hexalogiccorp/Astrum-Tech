@@ -1,0 +1,97 @@
+---
+interface ButtonProps {
+  href?: string;
+  variant?: "primary" | "secondary" | "outline";
+  type?: "button" | "submit";
+  disabled?: boolean;
+  class?: string;
+}
+
+const {
+  variant = "primary",
+  href,
+  type = "button",
+  disabled = false,
+  class: className = "",
+}: ButtonProps = Astro.props;
+
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  class:list={["btn", `btn--${variant}`, "text-button", className]}
+  href={disabled ? undefined : href}
+  disabled={disabled}
+  type={Tag === "button" ? type : undefined}
+  aria-disabled={disabled ? "true" : undefined}
+>
+  <slot />
+</Tag>
+
+<style>
+  .btn {
+    padding: 1rem;
+    color: white;
+    display: flex;
+    gap: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .btn :global(svg) {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  .btn:hover :global(svg) {
+    transform: scale(1.3);
+  }
+
+  .btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transition: none;
+  }
+
+  .btn[disabled] :global(svg) {
+    transition: none;
+  }
+
+  .btn[disabled]:hover,
+  .btn[disabled]:hover :global(svg) {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Primary styles */
+  .btn--primary {
+    background-color: var(--primary-color);
+  }
+
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 10px 10px 0 0 var(--secondary-color);
+  }
+
+  /* Secondary Styles */
+  .btn--secondary {
+    background-color: var(--secondary-color);
+  }
+
+  .btn--secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 10px 10px 0 0 var(--primary-color);
+  }
+
+  /* Outline styles */
+  .btn--outline {
+    color: black;
+    background-color: white;
+    border: 2px solid var(--secondary-color);
+  }
+
+  .btn--outline:hover {
+    transform: translateY(-2px);
+    box-shadow: 10px 10px 0 0 var(--secondary-color);
+  }
+</style>
