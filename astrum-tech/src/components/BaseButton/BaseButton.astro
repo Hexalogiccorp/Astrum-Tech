@@ -35,9 +35,13 @@ const Tag = href ? "a" : "button";
     display: flex;
     gap: 10px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn :global(svg) {
+    width: 1em;
+    height: 1em;
     transform-box: fill-box;
     transform-origin: center;
     transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
