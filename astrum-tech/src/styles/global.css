@@ -15,6 +15,7 @@
 	--font-sans: 'Inter', system-ui, sans-serif;
 	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
     --primary-color: #0898FF;
+	--primary-color-hover: rgba(87, 178, 248, 0.451);
     --secondary-color: #061521;
     --gray-dark-color: #999999;
     --gra-light-color: #B2B2B2;
