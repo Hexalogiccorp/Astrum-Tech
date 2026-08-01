@@ -1,0 +1,59 @@
+---
+import "./Services.css";
+import Title from "../Reusables/title/title.astro";
+import BaseButton from "../BaseButton/BaseButton.astro";
+
+---
+
+<section class="services-section container-services">
+	<Title text="SERVICES" />
+	<div>
+		<div class="services-top">
+			<div class="services-top-left">
+				<div class="main-title-text">EXPLORE OUR SERVICE OFFERINGS</div>
+				<div class="main-paragraph-text">
+					Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator
+					Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator.
+				</div>
+			</div>
+			<div class="services-buttons">
+				<div class="button">
+					<BaseButton
+						variant="secondary"	
+					>Let's start <svg
+							width="29"
+							height="29"
+							viewBox="0 0 29 29"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<g clip-path="url(#clip0_207_201)">
+								<path
+									d="M10.8749 6.04163V8.45829H18.8378L4.83325 22.4629L6.537 24.1666L20.5416 10.162V18.125H22.9583V6.04163H10.8749Z"
+									fill="white"></path>
+							</g>
+							<defs>
+								<clipPath id="clip0_207_201">
+									<rect width="29" height="29" fill="white"
+									></rect>
+								</clipPath>
+							</defs>
+						</svg>
+					</BaseButton>
+				</div>
+				<div>
+					<BaseButton
+						variant="outline"
+					>More services 
+					</BaseButton>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+</section>
