@@ -49,3 +49,7 @@
 .social-icon svg{
     height: 45%;
 }
+
+#footer-image {
+  opacity: 0.1;
+}
