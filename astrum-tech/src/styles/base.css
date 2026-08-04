@@ -29,6 +29,16 @@
 		font-size: clamp(15px, 7.857px + 2.2321vw, 40px);
 	}
 
+	.subtitle {
+		font-family: var(--font-sans);
+		font-size: clamp(18px, 14px + 1.25vw, 32px);
+	}
+
+	.subtitle-sm {
+		font-family: var(--font-sans);
+		font-size: clamp(14px, 10px + 1.25vw, 28px);
+	}
+
 	.paragraph {
 		font-family: var(--font-sans);
 		font-size: clamp(10px, 6px + 1.25vw, 24px);

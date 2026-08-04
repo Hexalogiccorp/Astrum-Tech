@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './base.css';
+@import './animations.css';
 
 /* Inter — textos y títulos */
 @import '@fontsource/inter/400.css';
