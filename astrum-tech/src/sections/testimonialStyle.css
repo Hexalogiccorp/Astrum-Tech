@@ -55,9 +55,11 @@
   display: flex;
 }
 
-.card-container h3,
-.card-container p {
+.card-container p,
+.card-container blockquote,
+.card-container cite {
   margin: 0;
+  font-style: normal;
 }
 
 .card-container .role {

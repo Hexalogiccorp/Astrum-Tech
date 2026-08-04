@@ -28,7 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
     dots.forEach((dot) => {
-      dot.classList.toggle("active", dot.dataset.slide === String(currentIndex));
+      const isActive = dot.dataset.slide === String(currentIndex);
+      dot.classList.toggle("active", isActive);
+      if (isActive) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
     });
     replayLines();
   };

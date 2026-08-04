@@ -21,9 +21,21 @@ const testimonials = [
       "Ipsum dolor sit ammet surtur asator <span>Lorem</span> irtir surtur asator dolor sit ammet surtur <span>asator</span> irtir surtur asator",
   },
 ];
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Astrum Tech",
+  review: testimonials.map((testimonial) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: testimonial.name },
+    reviewBody: testimonial.comment.replace(/<[^>]+>/g, ""),
+  })),
+};
 ---
 
 <section
+  id="testimonios"
   class="testimonial-section h-2/4 md:h-full flex justify-center "
 >
   <img class="testimonial-bg" src="/testimonialBg.png" alt="" />
@@ -31,12 +43,21 @@ const testimonials = [
     <h2 class="section-title">Testimonio title</h2>
     <p class="paragraph font-bold text-white">WHAT OUR CLIENTS SAY</p>
 
-    <div class="card-wrapper mt-5">
+    <div
+      class="card-wrapper mt-5"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Testimonios de clientes"
+      aria-live="polite"
+    >
       {testimonials.map((testimonial, index) => (
         <div
           class="card-container p-5 md:p-15"
           class:list={[{ active: index === 0 }]}
           data-slide={index}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`Testimonio ${index + 1} de ${testimonials.length}`}
         >
           <svg
             width="86"
@@ -56,14 +77,20 @@ const testimonials = [
 
           <div class="side-bar"></div>
 
-          <h3 class="client-name subtitle">{testimonial.name}</h3>
+          <cite class="client-name subtitle">{testimonial.name}</cite>
           <p class="client-role subtitle-sm ">{testimonial.role}</p>
-          <p class="paragraph client-comment pt-5" set:html={testimonial.comment} />
+          <blockquote class="client-comment-quote">
+            <p class="paragraph client-comment pt-5" set:html={testimonial.comment} />
+          </blockquote>
         </div>
       ))}
     </div>
 
-    <div class="slider-dots flex gap-5 mt-3 md:mt-5">
+    <div
+      class="slider-dots flex gap-5 mt-3 md:mt-5"
+      role="group"
+      aria-label="Seleccionar testimonio"
+    >
       {testimonials.map((_, index) => (
         <button
           type="button"
@@ -71,10 +98,13 @@ const testimonials = [
           class:list={[{ active: index === 0 }]}
           data-slide={index}
           aria-label={`Ver testimonio ${index + 1}`}
+          aria-current={index === 0 ? "true" : undefined}
         ></button>
       ))}
     </div>
   </div>
 </section>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(reviewSchema)} />
 
 <script src="./Testimonial.ts"></script>
