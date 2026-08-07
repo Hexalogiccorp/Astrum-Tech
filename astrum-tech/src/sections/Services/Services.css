@@ -1,0 +1,113 @@
+.container-services {
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+.services-section > .title {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.services-section > .title.in-view {
+  animation: fade-up 0.5s ease-out forwards;
+}
+
+.main-title-text,
+.main-paragraph-text {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.services-top.in-view .main-title-text,
+.services-top.in-view .main-paragraph-text {
+  animation: fade-left 0.5s ease-out forwards;
+}
+
+.services-buttons {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.services-top.in-view .services-buttons {
+  animation: fade-right 0.5s ease-out forwards;
+}
+
+.services-buttons .btn {
+  min-width: 200px;
+  min-height: 3.5rem;
+}
+
+.service-card-number {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 1.6rem + 3vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--secondary-color);
+  text-shadow: 3px 3px 0 var(--primary-color);
+  text-align: right;
+  transform-origin: right center;
+  transform: scale(0);
+}
+
+.service-card.in-view .service-card-number {
+  animation: zoom-in 0.6s ease-out forwards;
+}
+
+.service-card-title {
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.25rem);
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+}
+
+.service-card-text {
+  color: var(--secondary-color);
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  line-height: 1.5;
+}
+
+.service-card-title .word-mask span,
+.service-card-text .word-mask span {
+  display: inline-block;
+}
+
+.service-card-title .word-mask span {
+  transform: translateY(-100%);
+}
+
+.service-card-text .word-mask span {
+  transform: translateY(100%);
+}
+
+.service-card.in-view .service-card-title .word-mask span {
+  animation: word-drop-in 0.5s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+
+.service-card.in-view .service-card-text .word-mask span {
+  animation: word-rise-in 0.5s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+
+.service-card-image img {
+  transform: translateX(-100%);
+}
+
+.service-card-image.in-view img {
+  animation: img-slide-in 0.8s ease-out forwards;
+}
+
+@keyframes img-slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .service-card-number {
+    text-align: left;
+    transform-origin: left center;
+  }
+}
