@@ -1,0 +1,58 @@
+---
+import "./HeroSection.css";
+import BaseButton from "../BaseButton/BaseButton.astro";
+
+const photos = ["/heroPhoto1.webp", "/heroPhoto2.webp", "/heroPhoto3.webp", "/heroPhoto4.webp"];
+---
+
+<section class="flex items-center hero-section">
+  <div class="left-side relative z-10 space-y-4 sm:space-y-5 md:space-y-6 p-4 sm:p-8 ml-5 md:ml-10 lg:ml-20">
+    <h1 class="title hero-title">
+      LOREM IPSUM DOLOR <span>SIT AMMET</span> INNET BUTER ITTAR
+    </h1>
+    <p class="paragraph hero-paragraph">
+      Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator Lorem Ipsum
+      dolor sit ammet surtur asator irtir surtur asator
+    </p>
+
+    <div class="hero-cta flex items-center">
+      <BaseButton variant="white"
+        >CONTACT US <svg
+          width="29"
+          height="29"
+          viewBox="0 0 29 29"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_207_201)">
+            <path
+              d="M10.8749 6.04163V8.45829H18.8378L4.83325 22.4629L6.537 24.1666L20.5416 10.162V18.125H22.9583V6.04163H10.8749Z"
+              fill="currentColor"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_207_201">
+              <rect width="29" height="29" fill="white"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </BaseButton>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <img src="/Vector2.webp" alt="" aria-hidden="true" class="hero-vector-panel" />
+    <img src="/Vector1.webp" alt="" aria-hidden="true" class="hero-vector-accent" />
+
+    <div class="hero-photo-frame" id="hero-photo-frame">
+      {photos.map((src, i) => (
+        <img
+          src={src}
+          alt="Astrum Tech - proyectos industriales"
+          class:list={["hero-photo-slide", { "is-active": i === 0 }]}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script src="./HeroSection.ts"></script>
