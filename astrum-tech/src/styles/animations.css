@@ -54,7 +54,6 @@
   }
 }
 
-/* Envolver cada letra en un span con --i: <indice> */
 .stagger-text span {
   display: inline-block;
   opacity: 0;
