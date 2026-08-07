@@ -1,0 +1,16 @@
+---
+
+import './title.css';
+
+interface TitleProps {
+    text: string;
+}
+
+const { 
+    text 
+}: TitleProps = Astro.props as TitleProps;
+
+---
+
+<h1 class="title title-text">{text}</h1>
+
