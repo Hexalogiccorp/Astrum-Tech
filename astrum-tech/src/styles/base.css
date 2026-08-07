@@ -16,37 +16,5 @@
 		font-family: var(--font-mono);
 		font-weight: 500;
 		letter-spacing: 0.02em;
-		font-size: clamp(14px, 3.4286px + 1.4286vw, 24px);
 	}
-
-	.title {
-		font-family: var(--font-sans);
-		font-size: clamp(16px, 2.286px + 4.2857vw, 64px);
-	}
-
-	.section-title {
-		font-family: var(--font-sans);
-		font-size: clamp(15px, 7.857px + 2.2321vw, 40px);
-	}
-
-	.subtitle {
-		font-family: var(--font-sans);
-		font-size: clamp(18px, 14px + 1.25vw, 32px);
-	}
-
-	.subtitle-sm {
-		font-family: var(--font-sans);
-		font-size: clamp(14px, 10px + 1.25vw, 28px);
-	}
-
-	.paragraph {
-		font-family: var(--font-sans);
-		font-size: clamp(10px, 6px + 1.25vw, 24px);
-	}
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
 }
