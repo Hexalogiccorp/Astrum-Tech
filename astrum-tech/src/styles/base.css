@@ -16,7 +16,7 @@
 		font-family: var(--font-mono);
 		font-weight: 500;
 		letter-spacing: 0.02em;
-		font-size: clamp(8px, 3.4286px + 1.4286vw, 24px);
+		font-size: clamp(14px, 3.4286px + 1.4286vw, 24px);
 	}
 
 	.title {
@@ -27,6 +27,16 @@
 	.section-title {
 		font-family: var(--font-sans);
 		font-size: clamp(15px, 7.857px + 2.2321vw, 40px);
+	}
+
+	.subtitle {
+		font-family: var(--font-sans);
+		font-size: clamp(18px, 14px + 1.25vw, 32px);
+	}
+
+	.subtitle-sm {
+		font-family: var(--font-sans);
+		font-size: clamp(14px, 10px + 1.25vw, 28px);
 	}
 
 	.paragraph {
