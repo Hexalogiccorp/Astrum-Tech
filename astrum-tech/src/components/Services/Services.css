@@ -1,5 +1,61 @@
 .services-section {
   position: relative;
   margin-top: 60px;
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
+}
+
+.services-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 3.5rem 2rem;
+  margin-top: 4rem;
+}
+
+.service-card-number {
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 1.6rem + 3vw, 4.5rem);
+  display: flex;
+  justify-content: end;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--secondary-color);
+  text-shadow: 3px 3px 0 var(--primary-color);
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  width: 50%;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.service-card-text {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.service-card-image {
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .services-cards {
+    gap: 2.5rem;
+  }
+
+  .service-card-number {
+    display: flex;
+    justify-content: start;
+  }
+
+  .button {
+    font-size: 2.9rem;
+  }
 }

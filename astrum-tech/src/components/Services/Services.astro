@@ -3,6 +3,11 @@ import "./Services.css";
 import Title from "../Reusables/title/title.astro";
 import BaseButton from "../BaseButton/BaseButton.astro";
 
+const services = [
+	{ number: "01", image: "/servf1.webp" },
+	{ number: "02", image: "/servf2.webp" },
+	{ number: "03", image: "/servf3.webp" },
+];
 ---
 
 <section class="services-section container-services">
@@ -50,10 +55,27 @@ import BaseButton from "../BaseButton/BaseButton.astro";
 			</div>
 		</div>
 
-		<div>
-			<div></div>
-			<div></div>
-			<div></div>
+		<div class="services-cards">
+			{
+				services.map((service) => (
+					<div class="service-card">
+						<div class="service-card-number">{service.number}</div>
+						<div class="service-card-title">
+							EXPLORE OUR SERVICE OFFERINGS
+						</div>
+						<p class="service-card-text">
+							Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator
+						</p>
+						<div class="service-card-image">
+							<img
+								src={service.image}
+								alt="Explore our service offerings"
+								loading="lazy"
+							/>
+						</div>
+					</div>
+				))
+			}
 		</div>
 	</div>
 </section>
