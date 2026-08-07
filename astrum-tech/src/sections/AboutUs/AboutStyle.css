@@ -8,9 +8,13 @@
 
 /* ---------- Lado izquierdo: collage de fotos ---------- */
 
+.left-side {
+  height: 100%;
+}
+
 .left-frame {
   position: relative;
-  height: 340px;
+  height: 100%;
 }
 
 .main-photo {
@@ -96,10 +100,12 @@
 /* ---------- Lado derecho: contenido ---------- */
 
 .rigth-side {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  justify-content: space-between;  
+
 }
 
 .eyebrow {
@@ -128,7 +134,7 @@
 
 .about-define {
   font-family: var(--font-sans);
-  color: var(--secondary-color);
+  color: var(--gray-dark-color);
   font-weight: 500;
 }
 
