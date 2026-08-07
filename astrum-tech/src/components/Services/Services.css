@@ -4,6 +4,12 @@
   min-height: calc(100vh - 60px);
 }
 
+.container-services {
+  max-width: 1500px;
+  margin: 8rem auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
 .services-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -14,29 +20,28 @@
 .service-card-number {
   font-family: var(--font-sans);
   font-size: clamp(2.5rem, 1.6rem + 3vw, 4.5rem);
-  display: flex;
-  justify-content: end;
   font-weight: 800;
   line-height: 1;
   color: var(--secondary-color);
   text-shadow: 3px 3px 0 var(--primary-color);
-  margin-right: 2rem;
+  text-align: right;
   margin-bottom: 1.5rem;
 }
 
 .service-card-title {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.25rem);
   font-weight: 700;
-  width: 50%;
   color: var(--secondary-color);
   text-transform: uppercase;
+  width: 70%;
   margin-bottom: 0.75rem;
 }
 
 .service-card-text {
   color: var(--secondary-color);
-  font-size: 0.95rem;
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
   line-height: 1.5;
+  width: 80%;
   margin-bottom: 1.5rem;
 }
 
@@ -45,17 +50,23 @@
   width: 100%;
 }
 
+.service-card-image img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 950px) {
+  .container-services {
+    margin: 4rem auto;
+  }
+}
+
 @media (max-width: 600px) {
   .services-cards {
     gap: 2.5rem;
   }
 
   .service-card-number {
-    display: flex;
-    justify-content: start;
-  }
-
-  .button {
-    font-size: 2.9rem;
+    text-align: left;
   }
 }

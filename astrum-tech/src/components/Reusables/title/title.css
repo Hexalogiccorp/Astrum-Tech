@@ -1,16 +1,3 @@
-
-.container-services {
-  max-width: 1200px;
-  margin: 8rem auto;
-  padding: 0 1rem;
-}
-
-@media (max-width: 950px) {
-  .container-services {
-    margin: 4rem auto;
-  }
-}
-
 .title-text {
   font-size: 2rem;
   color: var(--primary-color);
