@@ -1,7 +1,7 @@
 ---
 interface ButtonProps {
   href?: string;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "white";
   type?: "button" | "submit";
   disabled?: boolean;
   class?: string;
@@ -105,5 +105,16 @@ const Tag = href ? "a" : "button";
   .btn--outline:hover {
     transform: translateY(-2px);
     box-shadow: 10px 10px 0 0 var(--secondary-color);
+  }
+
+  /* White styles */
+  .btn--white {
+    color: var(--primary-color);
+    background-color: var(--white-color);
+  }
+
+  .btn--white:hover {
+    transform: translateY(-2px);
+    box-shadow: 10px 10px 0 0 var(--primary-color);
   }
 </style>
