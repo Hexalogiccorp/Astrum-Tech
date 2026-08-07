@@ -1,4 +1,4 @@
-import { observeInView } from "../scripts/scrollReveal";
+import { observeInView } from "../../scripts/scrollReveal";
 
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector<HTMLElement>(".testimonial-section");

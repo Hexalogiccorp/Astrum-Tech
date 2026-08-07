@@ -26,7 +26,25 @@
 
 .testimonial-content {
   z-index: 1;
-  height: 80%;
+  height: 90%;
+}
+
+.testimonial-content .title {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.testimonial-section.in-view .testimonial-content .title {
+  animation: fade-up 0.5s ease-out forwards;
+}
+
+.testimonial-content > .subtitle {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.testimonial-section.cards-in-view .testimonial-content > .subtitle {
+  animation: fade-up 0.5s ease-out forwards;
 }
 
 .card-wrapper {
@@ -113,6 +131,9 @@
     right: 2rem;
     height: 2rem;
   }
+  .testimonial-content {
+  height: 80%;
+}
 }
 
 

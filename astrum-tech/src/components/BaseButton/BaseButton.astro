@@ -37,6 +37,7 @@ const Tag = href ? "a" : "button";
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
   }
 
   .btn :global(svg) {
@@ -91,11 +92,13 @@ const Tag = href ? "a" : "button";
   .btn--outline {
     color: black;
     background-color: white;
-    border: 2px solid var(--secondary-color);
+    box-shadow: inset 0 0 0 2px var(--secondary-color);
   }
 
   .btn--outline:hover {
     transform: translateY(-2px);
-    box-shadow: 10px 10px 0 0 var(--secondary-color);
+    box-shadow:
+      inset 0 0 0 2px var(--secondary-color),
+      10px 10px 0 0 var(--secondary-color);
   }
 </style>
