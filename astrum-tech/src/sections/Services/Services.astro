@@ -1,0 +1,109 @@
+---
+import "./Services.css";
+import Title from "../../components/Reusables/title/title.astro";
+import BaseButton from "../../components/BaseButton/BaseButton.astro";
+
+const services = [
+	{ number: "01", image: "/servf1.webp" },
+	{ number: "02", image: "/servf2.webp" },
+	{ number: "03", image: "/servf3.webp" },
+];
+
+const servicesSchema = {
+	"@context": "https://schema.org",
+	"@type": "ItemList",
+	itemListElement: services.map((service, index) => ({
+		"@type": "ListItem",
+		position: index + 1,
+		item: {
+			"@type": "Service",
+			name: "EXPLORE OUR SERVICE OFFERINGS",
+			description:
+				"Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator",
+			provider: {
+				"@type": "Organization",
+				name: "Astrum Tech",
+			},
+		},
+	})),
+};
+---
+
+<section class="services-section container-services relative mt-[60px] min-h-[calc(100vh-60px)] max-w-[1800px] mx-auto my-16 lg:my-32">
+	<Title text="SERVICES" />
+	<div>
+		<div class="services-top flex flex-col items-start gap-8 mt-8 min-[951px]:flex-row min-[951px]:items-stretch min-[951px]:justify-between">
+			<div class="services-top-left">
+				<h3 class="main-title-text w-full min-[951px]:w-4/5">EXPLORE OUR SERVICE OFFERINGS</h3>
+				<p class="main-paragraph-text w-full mt-4 min-[951px]:w-[70%]">
+					Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator
+					Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator.
+				</p>
+			</div>
+			<div class="services-buttons shrink-0 flex flex-col gap-4 min-[601px]:flex-row min-[601px]:flex-wrap min-[951px]:block">
+				<BaseButton
+					variant="secondary"
+					href="#"
+					class="w-full min-[601px]:w-auto min-[601px]:flex-1 min-[951px]:mt-4"
+				>Let's start <svg
+						width="29"
+						height="29"
+						viewBox="0 0 29 29"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<g clip-path="url(#clip0_207_201)">
+							<path
+								d="M10.8749 6.04163V8.45829H18.8378L4.83325 22.4629L6.537 24.1666L20.5416 10.162V18.125H22.9583V6.04163H10.8749Z"
+								fill="white"></path>
+						</g>
+						<defs>
+							<clipPath id="clip0_207_201">
+								<rect width="29" height="29" fill="white"
+								></rect>
+							</clipPath>
+						</defs>
+					</svg>
+				</BaseButton>
+				<BaseButton
+					variant="outline"
+					href="#"
+					class="w-full min-[601px]:w-auto min-[601px]:flex-1 min-[951px]:mt-4"
+				>More services
+				</BaseButton>
+			</div>
+		</div>
+
+		<div class="services-cards grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-10 sm:gap-x-8 sm:gap-y-14 mt-16">
+			{
+				services.map((service) => (
+					<div class="service-card">
+						<div class="service-card-number mb-6">{service.number}</div>
+						<h3 class="service-card-title w-[70%] mb-3">
+							{"EXPLORE OUR SERVICE OFFERINGS".split(" ").map((word, i) => (
+								<span class="word-mask"><span style={`--i:${i}`}>{word}</span></span>
+							))}
+						</h3>
+						<p class="service-card-text w-4/5 mb-6">
+							{"Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator".split(" ").map((word, i) => (
+								<span class="word-mask"><span style={`--i:${i}`}>{word}</span></span>
+							))}
+						</p>
+						<div class="service-card-image relative w-full overflow-hidden">
+							<img
+								class="w-full h-auto"
+								src={service.image}
+								alt={`Servicio ${service.number} de Astrum Tech`}
+								loading="lazy"
+							/>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(servicesSchema)} />
+
+<script src="./Services.ts"></script>
