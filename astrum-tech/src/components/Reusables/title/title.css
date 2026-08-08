@@ -1,0 +1,22 @@
+.title-text {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.title {
+    width: fit-content;
+    padding: 1rem 2rem 1rem 2rem;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.main-title-text {
+    font-size: clamp(2rem, 1.2rem + 3.5vw, 4rem);
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.main-paragraph-text {
+    font-size: clamp(1rem, 0.85rem + 0.7vw, 1.5rem);
+    color: var(--gray-light-color);
+}

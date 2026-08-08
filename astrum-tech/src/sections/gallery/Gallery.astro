@@ -1,0 +1,45 @@
+---
+import Title from '../../components/Reusables/title/title.astro';
+import './galleryStyle.css'
+
+const images = [
+  { src: "/galleryFeed1.webp", alt: "Excavadora trabajando en obra" },
+  { src: "/galleryFeed2.webp", alt: "Piezas de mantenimiento sobre bandeja" },
+  { src: "/galleryFeed6.webp", alt: "Grúa perforadora en sitio", feature: true },
+  { src: "/galleryFeed5.webp", alt: "Servo drives industriales" },
+  { src: "/galleryFeed4.webp", alt: "Brazo robótico en laboratorio" },
+  { src: "/galleryFeed3.webp", alt: "Máquina con sensores" },
+];
+---
+<section class="max-w-[1800px] mx-auto px-[clamp(1.25rem,4vw,3rem)] my-16 lg:my-32">
+
+    <div class="gallery-header flex flex-col gap-5 items-center mb-5">
+        	<Title text="GALLERY" />
+            <h2 class="subtitle font-bold mt-5">GALLERY ABOUT OR WORK</h2>
+    </div>
+
+    <div class="gallery mt-10 md:mt-20">
+        <div class="gallery-item">
+            <img src={images[0].src} alt={images[0].alt} />
+        </div>
+        <div class="gallery-item">
+            <img src={images[1].src} alt={images[1].alt} />
+        </div>
+        <div class="gallery-item">
+            <img src={images[3].src} alt={images[3].alt} />
+        </div>
+        <div class="gallery-item">
+            <img src={images[4].src} alt={images[4].alt} />
+        </div>
+        <div class="gallery-item">
+            <img src={images[5].src} alt={images[5].alt} />
+        </div>
+        <a href="#" class="gallery-item gallery-item--feature">
+            <img src={images[2].src} alt={images[2].alt} />
+            <span class="gallery-item__label text-base">Watch gallery</span>
+        </a>
+    </div>
+
+</section>
+
+<script src="./Gallery.ts"></script>

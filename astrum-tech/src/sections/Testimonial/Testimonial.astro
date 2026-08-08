@@ -1,0 +1,111 @@
+---
+import Title from "../../components/Reusables/title/title.astro";
+import "./testimonialStyle.css";
+
+const testimonials = [
+  {
+    name: "John Doe",
+    role: "Executive Director at MuleSoft",
+    comment:
+      "Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator <span>Lorem</span> Ipsum dolor sit <span>ammet</span> surtur asator irtir surtur asator",
+  },
+  {
+    name: "Jane Smith",
+    role: "Head of Product at Northwind",
+    comment:
+      "Surtur asator irtir <span>Lorem</span> Ipsum dolor sit ammet surtur asator irtir surtur asator dolor sit <span>ammet</span> surtur asator",
+  },
+  {
+    name: "Carlos Perez",
+    role: "CTO at Vertex Labs",
+    comment:
+      "Ipsum dolor sit ammet surtur asator <span>Lorem</span> irtir surtur asator dolor sit ammet surtur <span>asator</span> irtir surtur asator",
+  },
+];
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Astrum Tech",
+  review: testimonials.map((testimonial) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: testimonial.name },
+    reviewBody: testimonial.comment.replace(/<[^>]+>/g, ""),
+  })),
+};
+---
+
+<section
+  id="testimonios"
+  class="testimonial-section h-2/3 md:h-full flex justify-center "
+>
+  <img class="testimonial-bg" src="/testimonialBg.png" alt="" />
+  <div class="testimonial-content flex flex-col gap-2 items-center mt-5 md:mt-8 w-[80%] sm:w-[60%] h-[80%]" >
+   	<Title text="TESTIMONIALS" />
+    <h2 class="subtitle font-bold text-white mt-5">WHAT OUR CLIENTS SAY</h2>
+
+    <div
+      class="card-wrapper mt-5"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Testimonios de clientes"
+      aria-live="polite"
+    >
+      {testimonials.map((testimonial, index) => (
+        <div
+          class="card-container p-5 md:p-15"
+          class:list={[{ active: index === 0 }]}
+          data-slide={index}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`Testimonio ${index + 1} de ${testimonials.length}`}
+        >
+          <svg
+            width="86"
+            height="90"
+            viewBox="0 0 86 90"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            id="double-quote"
+          >
+            <path
+              d="M0 89.5566L3.67198e-06 43.117L21.8904 43.117C21.5929 37.811 20.3722 28.8667 15.7356 22.7143C12.0941 17.8884 6.94461 15.5386 5.85259e-06 15.5386L7.08124e-06 -0.000205994C10.5041 -0.000204978 18.9053 4.08032 24.978 12.1277C32.4868 22.0827 34.6718 35.6002 35 43.1043L35 89.544L9.98906e-10 89.544L0 89.5566Z"
+              fill="#0898FF"></path>
+            <path
+              d="M51.0103 89.5566L51.0103 43.117L72.8942 43.117C72.5968 37.811 71.3765 28.8667 66.7413 22.7143C63.1008 17.8884 57.9528 15.5386 51.0103 15.5386L51.0103 -0.000205993C61.5113 -0.000204978 69.9101 4.08032 75.981 12.1277C83.4876 22.0827 85.6718 35.6002 86 43.1043L86 89.544L51 89.544L51.0103 89.5566Z"
+              fill="#0898FF"></path>
+          </svg>
+
+          <div class="side-bar"></div>
+
+          <cite class="client-name subtitle">{testimonial.name}</cite>
+          <p class="client-role subtitle-sm ">{testimonial.role}</p>
+          <blockquote class="client-comment-quote">
+            <p class="paragraph client-comment pt-5" set:html={testimonial.comment} />
+          </blockquote>
+        </div>
+      ))}
+    </div>
+
+    <div
+      class="slider-dots flex gap-5 mt-3 md:mt-5"
+      role="group"
+      aria-label="Seleccionar testimonio"
+    >
+      {testimonials.map((_, index) => (
+        <button
+          type="button"
+          class="slide"
+          class:list={[{ active: index === 0 }]}
+          data-slide={index}
+          aria-label={`Ver testimonio ${index + 1}`}
+          aria-current={index === 0 ? "true" : undefined}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(reviewSchema)} />
+
+<script src="./Testimonial.ts"></script>
