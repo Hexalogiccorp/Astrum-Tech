@@ -10,6 +10,7 @@
 	.text-base {
 		font-family: var(--font-sans);
 		line-height: 1.5;
+		font-size: clamp(14px, 8.8571px + 1.6071vw, 32px);
 	}
 
 	.text-button {
