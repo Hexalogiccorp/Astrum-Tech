@@ -1,0 +1,179 @@
+/* El band define su propia altura a partir de su contenido (wrapper);
+   flow-root evita que el margen negativo de la card "colapse" hacia
+   arriba y arrastre al band con ella. */
+.certifications-wrapper {
+  display: flow-root;
+}
+
+.certifications-band {
+  min-height: clamp(400px, 30vw, 540px);
+}
+
+.certifications-bg {
+  background-color: var(--secondary-color);
+  background-image:
+    linear-gradient(180deg, rgba(6, 21, 33, 0.55), rgba(6, 21, 33, 0.8)),
+    url("/certificationsBg.webp");
+  background-size: cover;
+  background-position: center;
+  clip-path: circle(0%);
+}
+
+.certifications-bg.in-view {
+  animation: circle-in-center 2.5s cubic-bezier(0.25, 1, 0.3, 1) both;
+}
+
+@keyframes circle-in-center {
+  from {
+    clip-path: circle(0%);
+  }
+  to {
+    clip-path: circle(125%);
+  }
+}
+
+.certifications-card {
+  background-color: var(--primary-color);
+}
+
+.certifications-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 1.05rem + 2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--white-color);
+  line-height: 1.15;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.certifications-text {
+  font-family: var(--font-sans);
+  color: var(--white-color);
+  line-height: 1.6;
+  font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1.05rem);
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.certifications-card.in-view .certifications-title,
+.certifications-card.in-view .certifications-text {
+  animation: fade-left 0.6s ease-out forwards;
+}
+
+.certifications-card.in-view .certifications-text {
+  animation-delay: 0.15s;
+}
+
+/* Ancho responsive del técnico, centralizado acá (no en Tailwind) para
+   controlar de un vistazo qué valor gana en cada tamaño de pantalla —
+   son todas min-width, así que la última que matchea es la que manda. */
+.certifications-photo {
+  width: 26%;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+  opacity: 0;
+  transform: scale(0.85) translateY(20px);
+}
+
+@media (min-width: 640px) {
+  .certifications-photo {
+    width: 22%;
+  }
+}
+
+@media (min-width: 768px) {
+  .certifications-photo {
+    width: 19%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .certifications-photo {
+    width: 25%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .certifications-photo {
+    width: 18%;
+  }
+}
+
+.certifications-card.in-view .certifications-photo {
+  animation: photo-in 0.7s ease-out 0.3s forwards;
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ---------- Badges de certificaciones ---------- */
+
+.cert-badge {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.certifications-badges.in-view .cert-badge {
+  animation: fade-up 0.5s ease-out forwards;
+  animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+.cert-badge-img {
+  display: block;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+  transition: transform 0.3s ease;
+}
+
+.cert-badge:hover .cert-badge-img,
+.cert-badge:focus-visible .cert-badge-img {
+  transform: translateY(-4px);
+}
+
+.cert-tooltip {
+  left: 50%;
+  bottom: calc(100% + 14px);
+  transform: translateX(-50%) translateY(4px);
+  width: max-content;
+  max-width: min(220px, calc(100vw - 2rem));
+  background-color: var(--white-color);
+  color: var(--secondary-color);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 20;
+}
+
+.cert-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--white-color);
+}
+
+.cert-badge:hover .cert-tooltip,
+.cert-badge:focus-visible .cert-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 767px) {
+  .cert-tooltip {
+    display: none;
+  }
+}

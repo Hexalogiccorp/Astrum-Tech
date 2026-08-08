@@ -1,0 +1,102 @@
+---
+import "./Certifications.css";
+
+// TODO: reemplazar por los nombres reales de cada certificación cuando
+// estén definidos — hoy son placeholders, igual que el resto del sitio.
+const certifications = [
+  {
+    image: "/certBadge1.webp",
+    label: "Certificación 01 – Astrum Tech",
+    tooltip:
+      "Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator.",
+  },
+  {
+    image: "/certBadge1.webp",
+    label: "Certificación 02 – Astrum Tech",
+    tooltip:
+      "Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator.",
+  },
+  {
+    image: "/certBadge1.webp",
+    label: "Certificación 03 – Astrum Tech",
+    tooltip:
+      "Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator.",
+  },
+  {
+    image: "/certBadge1.webp",
+    label: "Certificación 04 – Astrum Tech",
+    tooltip:
+      "Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator.",
+  },
+];
+
+const certificationsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: certifications.map((cert, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "EducationalOccupationalCredential",
+      name: cert.label,
+      description: cert.tooltip,
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Astrum Tech",
+      },
+    },
+  })),
+};
+---
+
+<section id="certifications" class="certifications-section relative mt-32 mb-16 sm:mt-40 lg:mt-56 lg:mb-32">
+  <div class="certifications-band relative">
+    <div class="certifications-bg absolute inset-0"></div>
+
+    <div class="certifications-wrapper relative z-10 max-w-[1800px] mx-auto px-[clamp(1.25rem,4vw,3rem)]">
+      <div class="certifications-card relative w-full p-8 sm:p-10 md:p-14 lg:p-16 -mt-10 sm:-mt-14 lg:-mt-20">
+        <h2 class="certifications-title max-w-[70%] sm:max-w-[65%]">
+          OUR CERTIFICATIONS
+        </h2>
+        <p class="certifications-text max-w-[80%] sm:max-w-[70%] mt-4">
+          Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator Lorem Ipsum
+          dolor Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator
+          Lorem Ipsum dolor sit ammet surtur asator irtir surtur asator Lorem
+          Ipsum dolor
+        </p>
+
+        <img
+          class="certifications-photo absolute bottom-0 right-0 block"
+          src="/certificationsWorker.webp"
+          alt="Técnico certificado de Astrum Tech"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="certifications-badges flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 mt-12 sm:mt-16 lg:mt-20 pb-10 sm:pb-14 lg:pb-16">
+        {certifications.map((cert, i) => (
+          <button
+            type="button"
+            class="cert-badge relative"
+            style={`--i:${i}`}
+            aria-describedby={`cert-tooltip-${i}`}
+          >
+            <img
+              class="cert-badge-img w-20 sm:w-24 md:w-28"
+              src={cert.image}
+              alt={cert.label}
+              loading="lazy"
+            />
+            <span class="cert-tooltip absolute" role="tooltip" id={`cert-tooltip-${i}`}>
+              {cert.tooltip}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(certificationsSchema)} />
+
+<script src="./Certifications.ts"></script>
